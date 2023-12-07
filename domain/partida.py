@@ -31,15 +31,13 @@ class Partida:
     def __completo__(self) -> bool:
         return len(filter(lambda item: item.activada, self.tablero)) == (self.rejilla ** self.rejilla)
 
-    def __ganar__(self) -> bool:
+    def __ganar__(self,jugador:Jugador) -> bool:
+        vertical:bool = self.__vertical__(jugador)
+        horizontal:bool = self.__horizontal__(jugador)
+        izq_diagonal:bool = self.__izq_diagonal__(jugador)
+        dere_diagonal:bool = self.__dere_diagonal__(jugador)
 
-        vertical_zero: bool = self.__vertical__(Jugador.O)
-        vertical_ex: bool = self.__vertical__(Jugador.X)
-
-        horizontal_zero: bool = self.__horizontal__(Jugador.O)
-        horizontal_ex: bool = self.__horizontal__(Jugador.O)
-
-        return False
+        return vertical | horizontal | izq_diagonal | dere_diagonal
 
     def __vertical__(self, jugador: Jugador) -> bool:
         bandera: bool = False
@@ -66,13 +64,7 @@ class Partida:
         return bandera
 
     def __izq_diagonal__(self, jugador: Jugador)-> bool:
-        bandera: bool = False
-
-        diagonal:list[Casilla] = []
-
-        for i in range(self.rejilla):
-            for j in range(self.rejilla):
-                diagonal.append()
+        bandera:bool = len(filter(lambda item: item.activada & item.Jugador == jugador & item.fila == item.columna, self.tablero)) == self.rejilla
 
         return bandera
 

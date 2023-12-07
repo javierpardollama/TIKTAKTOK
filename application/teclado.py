@@ -4,11 +4,12 @@ from domain.jugador import Jugador
 class Teclado:
     salir: bool = False
 
+    victoria :bool = False
+
     def __init__(self):
         self.partida = Partida()
 
     def __jugar__(self):
-
 
         return None
 
@@ -33,3 +34,6 @@ class Teclado:
 
         if disponible:
             self.partida.__activar__(columna, fila, jugador)
+            self.victoria=self.partida.__ganar__(jugador)
+            if self.victoria:
+                print(f'¡Enhorabuena! ¡Has ganado {jugador}!\n')
