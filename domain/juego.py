@@ -73,7 +73,7 @@ class Juego:
         fila: str = ""
 
         while not columna.isnumeric() and columna not in range(Constantes.TAMAÑO):
-            columna = input(f"*******Jugador {Tinta.GREEN} 0 {Tinta.BLACK} Introduce tu columna **********  \n")
+            columna = input(f"******* Jugador {Tinta.GREEN} 0 {Tinta.BLACK} Introduce tu columna **********  \n")
 
         while not fila.isnumeric() and fila not in range(Constantes.TAMAÑO):
             fila = input(f"******* Jugador {Tinta.GREEN} 0 {Tinta.BLACK} Introduce tu fila **********  \n")
