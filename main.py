@@ -1,4 +1,4 @@
 from domain import *
 
 juego = Juego()
-juego.__play__()
+juego.__start__()

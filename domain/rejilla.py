@@ -27,5 +27,3 @@ class Rejilla:
                     rst = f"{rst}{os.linesep}"
 
         return rst
-
-
