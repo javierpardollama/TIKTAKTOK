@@ -1,5 +1,5 @@
 from random import randrange
-from domain import Rejilla, Constantes, Jugador, Tinta
+from domain import Rejilla, Constantes, Jugador, Tinta, Celda
 
 
 class Juego:
@@ -111,8 +111,9 @@ class Juego:
         vertical: bool = self.__vertical__(jugador)
         horizontal: bool = self.__horizontal__(jugador)
         izq_diagonal: bool = self.__left_diagonal__(jugador)
+        der_diagonal: bool = self.__right_diagonal__(jugador)
 
-        return vertical | horizontal | izq_diagonal
+        return vertical | horizontal | izq_diagonal | der_diagonal
 
     def __vertical__(self, jugador: Jugador) -> bool:
         count: int = list(
@@ -131,6 +132,19 @@ class Juego:
     def __left_diagonal__(self, jugador: Jugador) -> bool:
         count: int = list(filter(lambda item: item.activada and item.jugador == jugador and item.fila == item.columna,
                                  self.rejilla.celdas)).__len__()
+
+        return count == Constantes.TAMAÑO
+
+    def __right_diagonal__(self, jugador: Jugador) -> bool:
+        diag: list[Celda] = []
+
+        for fila in range(Constantes.TAMAÑO):
+            for columna in reversed(range(Constantes.TAMAÑO)):
+                obj = next(filter(lambda item: item.columna == columna and item.fila == fila and item.activada and item.jugador == jugador, self.rejilla.celdas), None)
+                if obj is not None:
+                    diag.append(obj)
+
+        count: int = diag.__len__()
 
         return count == Constantes.TAMAÑO
 
