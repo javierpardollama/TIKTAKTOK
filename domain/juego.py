@@ -28,11 +28,13 @@ class Juego:
 
             while movimiento not in ["Y", "S", "N", "Q"]:
                 movimiento = (input("\n" +
-                                    "******* ¿Comenzar de nuevo? **********  \n" +
+                                    "************************************** \n" +
+                                    "******** ¿COMENZAR DE NUEVO? ********* \n" +
                                     "1. Y \n" +
                                     "2. S \n" +
                                     "3. N \n" +
-                                    "4. Q \n")).upper()
+                                    "4. Q \n" +
+                                    "************************************** \n")).upper()
 
                 match movimiento:
                     case "Y":
@@ -73,10 +75,10 @@ class Juego:
         fila: str = ""
 
         while not columna.isnumeric() and columna not in range(Constantes.TAMAÑO):
-            columna = input(f"******* Jugador {Tinta.GREEN} 0 {Tinta.BLACK} Introduce tu columna **********  \n")
+            columna = input(f"******* JUGADOR {Tinta.GREEN} 0 {Tinta.BLACK} INTRODUCE TU COLUMNA **********  \n")
 
         while not fila.isnumeric() and fila not in range(Constantes.TAMAÑO):
-            fila = input(f"******* Jugador {Tinta.GREEN} 0 {Tinta.BLACK} Introduce tu fila **********  \n")
+            fila = input(f"******* JUGADOR {Tinta.GREEN} 0 {Tinta.BLACK} INTRODUCE TU FILA **********  \n")
 
         return int(columna), int(fila)
 

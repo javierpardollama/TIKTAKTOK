@@ -1,7 +1,6 @@
 from domain.jugador import Jugador
 from domain.tinta import Tinta
 
-
 class Celda:
     def __init__(self, columna: int = 0, fila: int = 0, jugador: Jugador = Jugador.VACIO,
                  activada: bool = False) -> None:
