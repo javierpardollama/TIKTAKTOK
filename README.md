@@ -1,11 +1,11 @@
 # TIKTAKTOK
 
-##ESTRUCTURA
+## ESTRUCTURA
 
 - Dominio
 - Main
 
-###DOMINIO
+### DOMINIO
 
 - Celda
 - Constantes
